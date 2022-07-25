@@ -16,12 +16,18 @@ while True:
   x+=1
   w.delete("all")
   w.create_rectangle(x,50,x+50,100)
+
   if keyboard.is_pressed("up arrow"):
-      frog_y -=5
+      if frog_y-5>0:
+       frog_y -=5
   if keyboard.is_pressed("left arrow"):
-      frog_x -=5
+      if frog_x -5>0:
+        frog_x -=5
   if keyboard.is_pressed("right arrow"):
-      frog_x +=5
+      if frog_x+5<=770:
+        frog_x +=5
+  if frog_y<=0:
+    print("Top reached")
 
   w.create_rectangle(frog_x,frog_y,frog_x+frog_width,frog_y+frog_height,fill="green")
   w.update() #paints on the screen
