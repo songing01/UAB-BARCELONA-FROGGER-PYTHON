@@ -25,6 +25,8 @@ class Car:
 
     def move(self):
         self.x += self.speed
+        if self.x > 800:
+            self.x = 50
 
     def paint(self, w):
         w.create_rectangle(self.x, self.y, self.x +
