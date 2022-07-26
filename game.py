@@ -4,28 +4,7 @@ from tkinter.ttk import Separator
 import keyboard
 from Car import *
 from Frog import *
-
-
-class Lane:
-    def __init__(self, x, y, w, h, numOfCars, color="", speed=1, start_x=50, separator_x=10):
-        self.cars = [None]*numOfCars
-        self.x = x
-        self.y = y
-        self.width = w
-        self.height = h
-        car_y = y+h/2-30/2
-        for i in range(len(self.cars)):
-            self.cars[i] = Car(start_x-(50+separator_x) *
-                               i, car_y, 50, 30, speed=speed, color=color)
-
-    def moveVehicles(self):
-        for car in self.cars:
-            car.move()
-
-    def paint(self, w):
-        for car in self.cars:
-            car.paint(w)
-
+from Lane import *
 
 tk = Tk()
 w = Canvas(tk, width=800, height=400)
@@ -35,14 +14,14 @@ start_x = 50
 separator_x = 10
 frog = Frog(400, 300, 30, 30)
 
-lane = Lane(0, 50, 800, 70, 5, speed=5, color="red")
+
 # TODO:
-# - Add a background color to a lane
+# - Add a background color to a lane #444444
 # - when a car reaches the last X of the lane, reposition it to the beginning of the lane ( Jest change the X of the car) : done
 # - create 3 lanes and store them in a list( like before the list of cars) : done
 # - move the class Lane to another file -> Lane.py
 start_y = 50
-separator_y = 20
+separator_y = 10
 lanes = [None]*3
 for i in range(len(lanes)):
     lanes[i] = Lane(0, start_y+(50+separator_y) *
