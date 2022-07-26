@@ -18,5 +18,8 @@ class Lane:
             car.move()
 
     def paint(self, w):
+        w.create_rectangle(self.x, self.y, self.x+self.width,
+                           self.y+self.height, fill="#444444")
+
         for car in self.cars:
             car.paint(w)
