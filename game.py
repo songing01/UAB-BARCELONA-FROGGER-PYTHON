@@ -16,14 +16,15 @@ class Frog:
 
 
 class Car:
-    def __init__(self, x, y, w, h):
+    def __init__(self, x, y, w, h, speed):
         self.x = x
         self.y = y
         self.width = w
         self.height = h
+        self.speed = speed
 
     def move(self):
-        self.x += 1
+        self.x += self.speed
 
     def paint(self, w):
         w.create_rectangle(self.x, self.y, self.x +
@@ -39,9 +40,9 @@ w.pack()
 x = 50
 frog = Frog(400, 300, 30, 30)
 cars = [None]*3
-cars[0] = Car(50, 50, 50, 30)
-cars[1] = Car(50, 100, 50, 30)
-cars[2] = Car(50, 150, 50, 30)
+cars[0] = Car(50, 50, 50, 30, 1)
+cars[1] = Car(50, 100, 50, 30, 3)
+cars[2] = Car(50, 150, 50, 30, 5)
 
 while True:
     for car in cars:
