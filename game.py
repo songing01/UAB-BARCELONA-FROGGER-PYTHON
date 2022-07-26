@@ -38,16 +38,24 @@ frog = Frog(400, 300, 30, 30)
 lane = Lane(0, 50, 800, 70, 5, speed=5, color="red")
 # TODO:
 # - Add a background color to a lane
-# - when a car reaches the last X of the lane, reposition it to the beginning of the lane ( Jest change the X of the car)
-# - create 3 lanes and store them in a list( like before the list of cars)
+# - when a car reaches the last X of the lane, reposition it to the beginning of the lane ( Jest change the X of the car) : done
+# - create 3 lanes and store them in a list( like before the list of cars) : done
 # - move the class Lane to another file -> Lane.py
+start_y = 50
+separator_y = 20
+lanes = [None]*3
+for i in range(len(lanes)):
+    lanes[i] = Lane(0, start_y+(50+separator_y) *
+                    i, 800, 70, 5, speed=5, color="red")
 
 while True:
-    lane.moveVehicles()
+    for lane in lanes:
+        lane.moveVehicles()
 
     w.delete("all")
 
-    lane.paint(w)
+    for lane in lanes:
+        lane.paint(w)
 
     if keyboard.is_pressed("up arrow"):
         if frog.y-5 > 0:
