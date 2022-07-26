@@ -1,5 +1,6 @@
 from tkinter import *
 import time
+from tkinter.ttk import Separator
 import keyboard
 
 
@@ -16,7 +17,7 @@ class Frog:
 
 
 class Car:
-    def __init__(self, x, y, w, h, speed, color):
+    def __init__(self, x, y, w, h, speed=1, color=""):
         self.x = x
         self.y = y
         self.width = w
@@ -26,8 +27,8 @@ class Car:
 
     def move(self):
         self.x += self.speed
-        if self.x > 800:
-            self.x = 50
+       # if self.x > 800:
+        #    self.x = 50
 
     def paint(self, w):
         w.create_rectangle(self.x, self.y, self.x +
@@ -40,12 +41,13 @@ tk = Tk()
 w = Canvas(tk, width=800, height=400)
 w.pack()
 
-x = 50
+start_x = 50
+separator_x = 10
 frog = Frog(400, 300, 30, 30)
 cars = [None]*3
-cars[0] = Car(50, 50, 50, 30, 1, "red")
-cars[1] = Car(50, 100, 50, 30, 3, "blue")
-cars[2] = Car(50, 150, 50, 30, 5, "yellow")
+for i in range(len(cars)):
+    cars[i] = Car(start_x-(50+separator_x)*i, 50, 50, 30, 3, color="red")
+
 
 while True:
     for car in cars:
