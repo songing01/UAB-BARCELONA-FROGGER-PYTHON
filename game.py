@@ -26,9 +26,10 @@ lanes = [None]*3
 numOfCars = [3, 4, 5]
 speeds = [5, 4, 3]
 colors = ["red", "blue", "yellow"]
+separator_x = [50, 70, 90]
 for i in range(len(lanes)):
     lanes[i] = Lane(0, start_y+(50+separator_y) *
-                    i, 800, 70,  numOfCars[i], speed=speeds[i], color=colors[i])
+                    i, 800, 70,  numOfCars[i], speed=speeds[i], color=colors[i], separator_x=separator_x[i])
 
 t0 = time.time()
 
