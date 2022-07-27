@@ -9,9 +9,15 @@ class Lane:
         self.width = w
         self.height = h
         car_y = y+h/2-30/2
-        for i in range(len(self.cars)):
-            self.cars[i] = Car(start_x-(50+separator_x) *
-                               i, car_y, 50, 30, speed=speed, color=color)
+        if speed < 0:
+            start_x = 800
+            for i in range(len(self.cars)):
+                self.cars[i] = Car(start_x+(50+separator_x) *
+                                   i, car_y, 50, 30, speed=speed, color=color)
+        else:
+            for i in range(len(self.cars)):
+                self.cars[i] = Car(start_x-(50+separator_x) *
+                                   i, car_y, 50, 30, speed=speed, color=color)
 
     def moveVehicles(self):
         for car in self.cars:

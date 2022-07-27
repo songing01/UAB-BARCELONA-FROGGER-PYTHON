@@ -22,7 +22,7 @@ start_y = 50
 separator_y = 20
 lanes = [None]*3
 numOfCars = [4, 6, 8]
-speeds = [5, 4, 3]
+speeds = [-5, 4, 3]
 colors = ["red", "blue", "yellow"]
 separator_x = [100, 70, 50]
 for i in range(len(lanes)):
@@ -30,33 +30,42 @@ for i in range(len(lanes)):
                     i, 800, 70,  numOfCars[i], speed=speeds[i], color=colors[i], separator_x=separator_x[i])
 
 t0 = time.time()
-
+isFinished = False
 while True:
-    for lane in lanes:
-        lane.moveVehicles()
+    if not isFinished:
+        for lane in lanes:
+            lane.moveVehicles()
 
-    w.delete("all")
-    t = time.time()-t0
-    w.create_text(30, 20, text=str(int(t*100)/100),
-                  font=("bold", 15))
+        w.delete("all")
+        t = time.time()-t0
+        w.create_text(30, 20, text=str(int(t*100)/100),
+                      font=("bold", 15))
 
-    for lane in lanes:
-        lane.paint(w)
+        for lane in lanes:
+            lane.paint(w)
 
-    if keyboard.is_pressed("up arrow"):
-        if frog.y-5 > 0:
-            frog.y -= 5
-        else:
-            t1 = time.time()
-            print("Top reached", (t1-t0))
-    if keyboard.is_pressed("left arrow"):
-        if frog.x - 5 > 0:
-            frog.x -= 5
-    if keyboard.is_pressed("right arrow"):
-        if frog.x+5 <= 770:
-            frog.x += 5
+        if keyboard.is_pressed("up arrow"):
+            if frog.y-5 > 0:
+                frog.y -= 5
+            else:
+                print("Top reached")
+                t = time.time()-t0
+                isFinished = True
+                w.create_text(
+                    700, 30, text=f"record: {str(100 - int(t*100)/100)}", font=("bold", 20), fill="red")
+                # w.create_text(
+                #    400, 200, text="press 'enter' on your keboard to restart", font=("bold", 20))
+                # if keyboard.is_pressed("enter"):
+                #    isFinished = False
+
+        if keyboard.is_pressed("left arrow"):
+            if frog.x - 5 > 0:
+                frog.x -= 5
+        if keyboard.is_pressed("right arrow"):
+            if frog.x+5 <= 770:
+                frog.x += 5
 
     frog.paint(w)
 
-    w.update()  # paints on the screen
+    w.update()
     time.sleep(50/1000)
