@@ -5,6 +5,10 @@ import keyboard
 from Car import *
 from Frog import *
 from Lane import *
+# TODO: When frog reaches to of the screen, display a record on top-right, calculated from 100-time needed to reach the top of the screen
+# In case the seepd parameter of the lane is negative,
+# cars should move from right to left.Make the appropiate changes(small number) in order to make the cars moving left- right,
+#  detect when cars reach the left side of the screen ( reposition) and draw the cars so the vertical line is on the left side of the car
 
 tk = Tk()
 w = Canvas(tk, width=800, height=400)
@@ -32,6 +36,9 @@ while True:
         lane.moveVehicles()
 
     w.delete("all")
+    t = time.time()-t0
+    w.create_text(30, 20, text=str(int(t*100)/100),
+                  font=("bold", 15))
 
     for lane in lanes:
         lane.paint(w)
