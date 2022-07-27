@@ -23,10 +23,10 @@ frog = Frog(400, 300, 30, 30)
 start_y = 50
 separator_y = 20
 lanes = [None]*3
-numOfCars = [3, 4, 5]
+numOfCars = [4, 6, 8]
 speeds = [5, 4, 3]
 colors = ["red", "blue", "yellow"]
-separator_x = [50, 70, 90]
+separator_x = [100, 70, 50]
 for i in range(len(lanes)):
     lanes[i] = Lane(0, start_y+(50+separator_y) *
                     i, 800, 70,  numOfCars[i], speed=speeds[i], color=colors[i], separator_x=separator_x[i])
