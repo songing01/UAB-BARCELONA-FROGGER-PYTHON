@@ -21,7 +21,7 @@ frog = Frog(400, 300, 30, 30)
 # - create 3 lanes and store them in a list( like before the list of cars) : done
 # - move the class Lane to another file -> Lane.py
 start_y = 50
-separator_y = 10
+separator_y = 20
 lanes = [None]*3
 numOfCars = [3, 4, 5]
 speeds = [5, 4, 3]
