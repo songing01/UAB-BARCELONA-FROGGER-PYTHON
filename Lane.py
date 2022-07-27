@@ -19,7 +19,7 @@ class Lane:
 
     def paint(self, w):
         w.create_rectangle(self.x, self.y, self.x+self.width,
-                           self.y+self.height, fill="#444444")
+                           self.y+self.height, fill="#A9A9A9")
 
         for car in self.cars:
             car.paint(w)
