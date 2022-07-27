@@ -30,6 +30,8 @@ for i in range(len(lanes)):
     lanes[i] = Lane(0, start_y+(50+separator_y) *
                     i, 800, 70,  numOfCars[i], speed=speeds[i], color=colors[i])
 
+t0 = time.time()
+
 while True:
     for lane in lanes:
         lane.moveVehicles()
@@ -43,7 +45,8 @@ while True:
         if frog.y-5 > 0:
             frog.y -= 5
         else:
-            print("Top reached")
+            t1 = time.time()
+            print("Top reached", (t1-t0))
     if keyboard.is_pressed("left arrow"):
         if frog.x - 5 > 0:
             frog.x -= 5
