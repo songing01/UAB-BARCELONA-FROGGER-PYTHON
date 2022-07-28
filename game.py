@@ -57,17 +57,13 @@ while True:
             if frog.x+5 <= 770:
                 frog.x += 5
 
-    for lane in lanes:
-        for car in lane.cars:
-            if frog.crashes(car):
-                t = time.time()-t0
-                reachedTime = int(t*100)/100
-                isFinished = True
-                score = 0
-                breaker = True
-                break
-        if breaker == True:
-            break
+        for lane in lanes:
+            for car in lane.cars:
+                if frog.crashes(car):
+                    t = time.time()-t0
+                    reachedTime = int(t*100)/100
+                    isFinished = True
+                    score = 0
 
     w.delete("all")
 
