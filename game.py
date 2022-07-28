@@ -43,6 +43,7 @@ while True:
             else:
                 print("Top reached")
                 t = time.time()-t0
+                reachedTime = int(t*100)/100
                 score = 100 - int(t*100)/100
                 isFinished = True
 
@@ -61,9 +62,13 @@ while True:
     w.delete("all")
 
     t = time.time()-t0
+    if not isFinished:
+        w.create_text(30, 20, text=str(int(t*100)/100),
+                      font=("bold", 15))
+    else:
+        w.create_text(30, 20, text=str(reachedTime),
+                      font=("bold", 15))
 
-    w.create_text(30, 20, text=str(int(t*100)/100),
-                  font=("bold", 15))
     for lane in lanes:
         lane.paint(w)
 
