@@ -31,7 +31,7 @@ for i in range(len(lanes)):
 
 t0 = time.time()
 isFinished = False
-
+reachedTime = 0
 while True:
     if not isFinished:
         for lane in lanes:
@@ -65,7 +65,7 @@ while True:
     if not isFinished:
         w.create_text(30, 20, text=str(int(t*100)/100),
                       font=("bold", 15))
-    else:
+    elif isFinished:
         w.create_text(30, 20, text=str(reachedTime),
                       font=("bold", 15))
 
