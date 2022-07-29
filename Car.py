@@ -39,14 +39,5 @@ class Car:
                 self.x = 800
 
     def paint(self, w):
-        # w.create_rectangle(self.x, self.y, self.x +
-        #                   self.width, self.y+self.height, fill=self.color)
         w.create_image(self.x+self.width/2, self.y +
                        self.height/2, image=self.img)
-
-        # if self.speed >= 0:
-        #    w.create_line(self.x+self.width*0.75, self.y, self.x +
-        #                  self.width*0.75, self.y+self.height)
-        # else:
-        #    w.create_line(self.x+self.width*0.25, self.y, self.x +
-        #                  self.width*0.25, self.y+self.height)
