@@ -8,15 +8,11 @@ class Frog:
         self.y = y
         self.width = w
         self.height = h
-        #self.img = PhotoImage(file="frog.jpg")
         photo = Image.open("frog.png")
         photo = photo.resize((self.width, self.height), Image.ANTIALIAS)
-# create an object of PhotoImage
         self.img = ImageTk.PhotoImage(photo)
 
     def paint(self, w):
-        # w.create_rectangle(self.x, self.y, self.x+self.width,
-        #                   self.y+self.height, fill="green")
         w.create_image(self.x+self.width/2, self.y +
                        self.height/2, image=self.img)
 
