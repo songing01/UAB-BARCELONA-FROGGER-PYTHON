@@ -14,17 +14,15 @@ tk = Tk()
 w = Canvas(tk, width=WIDTH, height=HEIGHT)
 w.pack()
 
-start_x = 50
-separator_x = 10
-frog = Frog(WIDTH/2, HEIGHT-100, 30, 30)
+frog = Frog(WIDTH/2, HEIGHT-100, 40, 40)
 
 start_y = 50
 separator_y = 20
 lanes = [None]*3
-numOfCars = [4, 6, 8]
+numOfCars = [4, 5, 6]
 speeds = [-5, 4, 3]
-colors = ["red", "blue", "yellow"]
-separator_x = [100, 70, 50]
+colors = ["red", "green", "yellow"]
+separator_x = [120, 100, 90]
 for i in range(len(lanes)):
     lanes[i] = Lane(0, start_y+(50+separator_y) *
                     i, WIDTH, 70,  numOfCars[i], speed=speeds[i], color=colors[i], separator_x=separator_x[i])
@@ -98,7 +96,7 @@ while True:
 
         if keyboard.is_pressed("enter"):
             print("pressed")
-            frog = Frog(WIDTH/2, HEIGHT-100, 30, 30)
+            frog = Frog(WIDTH/2, HEIGHT-100, 40, 40)
             for i in range(len(lanes)):
                 lanes[i] = Lane(0, start_y+(50+separator_y) *
                                 i, WIDTH, 70,  numOfCars[i], speed=speeds[i], color=colors[i], separator_x=separator_x[i])
