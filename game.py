@@ -14,7 +14,7 @@ tk = Tk()
 w = Canvas(tk, width=WIDTH, height=HEIGHT)
 w.pack()
 
-frog = Frog(WIDTH/2, HEIGHT-100, 40, 40)
+frog = Frog(WIDTH/2, HEIGHT-100, 30, 30)
 
 start_y = 50
 separator_y = 20
@@ -96,7 +96,7 @@ while True:
 
         if keyboard.is_pressed("enter"):
             print("pressed")
-            frog = Frog(WIDTH/2, HEIGHT-100, 40, 40)
+            frog = Frog(WIDTH/2, HEIGHT-100, 30, 30)
             for i in range(len(lanes)):
                 lanes[i] = Lane(0, start_y+(50+separator_y) *
                                 i, WIDTH, 70,  numOfCars[i], speed=speeds[i], color=colors[i], separator_x=separator_x[i])
